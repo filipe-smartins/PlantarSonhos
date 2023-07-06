@@ -94,20 +94,18 @@ class Transacao(models.Model):
     ]
 
     DINHEIRO = 'DINHEIRO'
-    CARTAO_CREDITO = 'CARTAO_CREDITO'
     CONTA_BANCARIA = 'CONTA_BANCARIA'
     RESERVA_CAIXA = 'RESERVA_CAIXA'
 
     TIPOS_PGTO = [
         (DINHEIRO, 'DINHEIRO'),
-        (CARTAO_CREDITO, 'CARTAO_CREDITO'),
         (CONTA_BANCARIA, 'CONTA_BANCARIA'),
         (RESERVA_CAIXA, 'RESERVA_CAIXA'),
     ]
 
     DAYANE = 'DAYANE'
     POLYANA = 'POLYANA'
-    CONTA = 'CONTA'
+    RESERVA = 'RESERVA'
     MEI = 'MEI'
     CAIXA = 'CAIXA'
 
@@ -115,7 +113,7 @@ class Transacao(models.Model):
     CONTAS_CHOICE = [
         (DAYANE, 'DAYANE'),
         (POLYANA, 'POLYANA'),
-        (CONTA, 'CONTA'),
+        (RESERVA, 'RESERVA'),
         (MEI, 'MEI'),
         (CAIXA, 'CAIXA'),
     ]

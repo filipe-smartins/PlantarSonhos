@@ -1,0 +1,32 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    {% bootstrap_css %}
+    <style>
+        body {
+            padding-top: 40px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .links {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SISTEMA DE GERENCIAMENTO</h1>
+        <h4>PLANTAR SONHOS</h4>
+        <div class="links">
+            <a class="btn btn-primary btn-lg" href="/admin/">Lançamentos</a>
+            <a class="btn btn-primary btn-lg" href="/relatorios/">Relatórios</a>
+        </div>
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>
