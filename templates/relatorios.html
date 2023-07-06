@@ -26,8 +26,13 @@
             border-bottom: 1px solid #ddd;
         }
         th {
+            background-color: #C0C0C0;
+        }
+        tfoot {
             background-color: #f2f2f2;
         }
+
+
     </style>
 </head>
 
@@ -82,6 +87,11 @@
                     <td>RESERVA</td>
                     <td>R$ {{ total_conta_reserva }}</td>
                 </tr>
+                <tfoot>
+                    <td><strong>TOTAL</strong></td>
+                    <td></td>
+                    <td><strong>R$ {{ total }}</strong></td>
+                </tfoot>
             </tbody>
         </table>
     </div>
