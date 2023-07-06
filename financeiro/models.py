@@ -3,10 +3,45 @@ from django.utils import timezone
 
 
 class Aluno(models.Model):
+
+    INTEGRAL = 'INTEGRAL'
+    PARCIAL_MANHA = 'PARCIAL_MANHA'
+    PARCIAL_TARDE = 'PARCIAL_TARDE'
+    PERSOLIZADO = 'PERSOLIZADO'
+
+    MODALIDADE_CHOICE = [
+        (INTEGRAL, 'INTEGRAL'),
+        (PARCIAL_MANHA, 'PARCIAL_MANHA'),
+        (PARCIAL_TARDE, 'PARCIAL_TARDE'),
+        (PERSOLIZADO, 'PERSOLIZADO'),
+    ]
+
+    ATIVO = 'ATIVO'
+    INATIVO = 'INATIVO'
+
+    SITUACAO_CHOICE = [
+        (ATIVO, 'ATIVO'),
+        (INATIVO, 'INATIVO'),
+    ]
+
     nome = models.CharField(max_length=100)
-    responsavel = models.CharField(max_length=100)
-    telefone = models.CharField(max_length=20, blank=True)
-    endereco = models.CharField(max_length=200, blank=True)
+    data_nascimento = models.DateField()
+    alergia = models.CharField(max_length=200, blank=True, null=True)
+    responsavel_1 = models.CharField(max_length=100)
+    telefone_1 = models.CharField(max_length=20, blank=True, null=True)
+    cpf_1 = models.CharField(max_length=20, blank=True, null=True)
+    rg_1 = models.CharField(max_length=20, blank=True, null=True)
+    responsavel_2 = models.CharField(max_length=100)
+    telefone_2 = models.CharField(max_length=20, blank=True, null=True)
+    cpf_2 = models.CharField(max_length=20, blank=True, null=True)
+    rg_2 = models.CharField(max_length=20, blank=True, null=True)
+    endereco = models.CharField(max_length=200, blank=True, null=True)
+    modalidade = models.CharField(max_length=50, choices=MODALIDADE_CHOICE)
+    autorizados_a_buscar = models.CharField(max_length=200, blank=True, null=True)
+    inicio_contrato = models.DateField()
+    fim_contrato = models.DateField(blank=True, null=True)
+    situacao = models.CharField(max_length=50, choices=SITUACAO_CHOICE)
+
 
     def __str__(self):
         return self.nome
