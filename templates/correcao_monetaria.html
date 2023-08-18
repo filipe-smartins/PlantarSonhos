@@ -1,0 +1,77 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% bootstrap_css %}
+    <style>
+        body {
+            padding-top: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>SISTEMA DE GERENCIAMENTO</h1>
+        <h4>PLANTAR SONHOS</h4>
+    </div>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Correção Monetária</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="col-md-6"> (R$)
+                        {% bootstrap_field form.valor label_class="font-weight-bold" %}
+                    </div>
+
+                    <div class="col-md-3"> (%)
+                        {% bootstrap_field form.juros label_class="font-weight-bold" %}
+                    </div>
+
+                    <div class="col-md-3"> (%)
+                        {% bootstrap_field form.multa label_class="font-weight-bold" %}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        {% bootstrap_field form.data_vencimento label_class="font-weight-bold" %}
+                    </div>
+                    <div class="col-md-6">
+                        {% bootstrap_field form.data_pagamento label_class="font-weight-bold" %}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Calcular Valor Corrigido</button>
+            </form>
+
+            {% if instance %}
+            <div class="mt-4 bg-light p-3">
+                <h3>Resultado:</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Atraso: {{ instance.atraso }} dias</li>
+                    <li class="list-group-item">Valor dos juros: R$ {{ instance.valor_juros|floatformat:2 }}</li>
+                    <li class="list-group-item">Valor da multa: R$ {{ instance.valor_multa|floatformat:2 }}</li>
+                    <strong><li class="list-group-item">Valor Corrigido: R$ {{ instance.valor_corrigido|floatformat:2 }}</li></strong>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

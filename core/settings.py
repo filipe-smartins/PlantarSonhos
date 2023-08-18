@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'import_export',
     'bootstrap4',
     'home',
+    'correcao_monetaria',
 ]
 
 MIDDLEWARE = [
