@@ -1,0 +1,58 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="">Plantar Sonhos</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/admin">Financeiro</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    {% bootstrap_css %}
+    <style>
+        body {
+            padding-top: 0px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Cobrança Adicional</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary mt-3">Calcular Total</button>
+    </form>
+
+    {% if total is not None %}
+    <div class="mt-4">
+        <h3>Total Calculado:</h3>
+        <p>O total calculado é: R$ {{ total|floatformat:2 }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+</body>
+</html>

@@ -22,4 +22,5 @@ urlpatterns = [
     path('relatorios/', include('relatorios.urls')),
     path('', include('home.urls')),
     path('correcao_monetaria/', include('correcao_monetaria.urls')),
+    path('cobranca_adicional/', include('cobranca_adicional.urls')),
 ]

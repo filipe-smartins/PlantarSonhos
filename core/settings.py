@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'home',
     'correcao_monetaria',
+    'cobranca_adicional',
 ]
 
 MIDDLEWARE = [
