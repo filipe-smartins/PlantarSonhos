@@ -125,11 +125,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (path.join(BASE_DIR, 'templates/static'),) #pasta onde ficarão os arquivos estáticos, como CSS, JS, IMAGENS DA APLICAÇÂO, etc
-STATIC_ROOT = path.join('static') # configuração para quando for fazer o deploy
-
-MEDIA_ROOT = path.join(BASE_DIR, 'media') # pasta para armazenar arquivos que o usuário envia, faz upload, etc
-MEDIA_URL = '/media/'
+STATICFILES_DIRS = [BASE_DIR / 'templates/static']
 
 
 # Default primary key field type
