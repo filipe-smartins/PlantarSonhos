@@ -1,0 +1,81 @@
+
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recebimentos</title>
+    {% bootstrap_css %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-left: 20px;
+            margin-right: auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 2px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #C0C0C0;
+        }
+        tfoot {
+            background-color: #f2f2f2;
+        }
+
+
+    </style>
+</head>
+
+<header>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="">Plantar Sonhos</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/admin">Financeiro</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<body>
+    <div class="container">
+        <h1>Relatório de Alunos</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nome do Aluno</th>
+                    <th>Data do Último Pagamento</th>
+                    <th>Valor</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                    <tr>
+                        <td>{{ aluno.numero_sequencial }}</td>
+                        <td>{{ aluno.nome }}</td>
+                        <td>{{ aluno.ultima_transacao|date:"d/m/Y" }}</td>
+                        <td>{{ aluno.ultimo_valor }}</td>
+                        <td>{{ aluno.ultima_situacao }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
